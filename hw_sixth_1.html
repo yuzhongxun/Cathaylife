@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+
+
+<body>
+
+    <h1>Throw Dice</h1> <!-- header text level 1-->
+    <BR> <!-- new line -->
+    <p> 骰子作業以JavaSrcipt的方式產生網頁 : </p> 
+
+    <!-- do your work here -->
+	<form action="" method="post">
+	請選擇骰子面數:
+		<select id="diceitf">
+			<option value="6" checked>6面</option>
+			<option value="5">5面</option>
+			<option value="4">4面</option>
+			<option value="3">3面</option>
+			<option value="2">2面</option>
+			<option value="1">1面</option>
+		</select>
+		請輸入骰子數量:
+		<input type="text" id="diceqty" value="1">
+		請輸入要丟擲幾次:
+		<input type="text" id="dicetms" value="100">
+		<br><br>
+		<input type="button" onclick="func_name()" value="擲出">
+		<div id="result"></div>
+	</form>
+	
+	<script>
+		
+		function func_name(){
+			var itf = document.getElementById('diceitf').value;   	/* interface */
+			var qty = document.getElementById('diceqty').value;		/* quantity */
+			var tms = document.getElementById('dicetms').value; 	/* times */
+			var Obj = {}; 	/* empty Obj */
+			qty = parseInt(qty, 10);	/* string 轉 number */
+			tms = parseInt(tms, 10);
+			if (typeof qty  === "number" || typeof tms === "number") {    /* if input value is number */
+				/* 投擲幾面骰子, 放入Random變數 */
+				for (var i=0; i < tms; i = i+1) {
+					var RadomNum = Math.floor((Math.random() * (itf*qty-qty+1) + qty));  /* Radom dice point, floor無條件去小數 */					
+					if (Obj[RadomNum] == null){		/* 判斷點數是否重複,沒有出現過就放入Obj */
+							Obj[RadomNum] = 1;
+						} else {	/* 有出現過,直接加總 */
+							Obj[RadomNum] = Obj[RadomNum] + 1; // put in RadomNum
+						}
+						var result = document.getElementById('result').innerHTML;
+						document.getElementById('result').innerHTML = result + RadomNum + '<br>';
+				}
+					var str ="";	// 串起來
+				for (var key in Obj) {
+					var value = Obj[key];
+					var star ="";
+					//document.writeln(value); //會刷新畫面
+					//console.log(value); //不會刷新畫面					
+					for (var j= 0; j < value; j=j+1) {
+						star=star+"<td bgcolor=\"pink\">*</td>";
+					}
+					str =  str +"<tr><td>" + key + "</td><td>" + value + "</td>" + star + "</tr>";
+				}
+			} else {
+				alert("請輸入正確的數字！");
+			}
+				str = "<table><tr><td>點數</td><td>總合</td><td></td></tr>" + str + "</table>";
+				document.getElementById("result").innerHTML = str;
+		}
+	
+	</script>
+    <!-- do your work here -->
+    
+
+</body>
+
+</html>
