@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		table, td {
+			border: 1px solid black;
+	}
+	</style>
+</head>
+	
+<body>
+
+    <h1> Canlendar </h1> <!-- header text level 1-->
+    <BR> <!-- new line -->
+    <p> 將Java SE練習題的日曆作業，以JavaSrcipt的方式產生網頁 </p> 
+
+    <!-- do your work here -->
+	<table id="myTable">	
+		<form action="" method="post">
+			年月輸入:<br>
+			<tr>
+				<td>年:</td><br>
+				<td><input type="text" id="year" value="2010"></td>
+			</tr>
+				<td>月:</td>
+				<td><input type="text" id="month" value="2"></td>
+			<tr>
+				<td><input type="button" onclick="myfun()" value="確定"></td>
+				<div id="result"></div>
+				<td><input type="button" onclick="clear()" value="清除"></td>
+			</tr>
+		</form>
+	</table>
+	
+	<p id="demo"></p>
+	
+	<script>
+		function myfun() {
+			var table = document.getElementById("myTable");
+		
+		// button input and connect
+		var yr = document.getElementById('year').value;
+		var mth = document.getElementById('month').value;
+		var dy = new Day(); // ()內加入參數, 年的部分是從[0]開始, 所以月份要n-1
+		
+		// 取出年的值比對現在的系統年份
+		var calyr = yr.getFullYear();	// 抓出輸入的年份比對系統年份
+		var calmth = mth.getMonth();	// 抓出輸入的月份比對系統月份
+		var d = new Date();
+		var caldy = d.getDay();	// 抓出每週的週間天數來印空白
+			//document.getElementById('result').innerHTML = result;
+		
+			
+			if (typeof yr === "number" || typeof mth === "number") { 	// 判斷是否為數字
+				for (var i=0; i < caldy; i = i+1){
+					console.log(' ' + i ); // 印出空白
+				}
+				for (var j=0; j < calmth; j=j+1){
+					if(j < 10){
+						console.log(' ' + j + ' ');
+					}else{
+						console.log(' ' + j );
+					}
+					if(caldy == 7){		// wait translate JS
+						document.getElementById("demo").innerHTML = n;
+					}
+					document.add(Calendar.DAY_OF_MONTH, 1);	// wait translate JS
+				}
+			} else{
+				alert("請輸入正確的數字！");
+			}
+			
+		
+		
+		}
+		
+		function clear() {
+			clear();
+		}
+		
+	</script>
+    <!-- do your work here -->
+    
+	
+	<!--
+	Scanner scanner = new Scanner(System.in);
+		System.out.print("請輸入一個數字(月份)：");
+		int m = scanner.nextInt();
+
+		Calendar cal = Calendar.getInstance(); // 回傳現在日期和時間
+		cal.set(cal.get(Calendar.YEAR), m - 1, 1);
+
+		System.out.println("\n    " + cal.get(Calendar.YEAR) + " 年 " + m + " 月");
+		System.out.println("====================");
+		System.out.println("日   一   二   三   四   五   六");
+		System.out.println("--------------------");
+
+		int calwk = cal.get(Calendar.DAY_OF_WEEK); // 取得現在是星期幾
+		// int calmth = cal.get(Calendar.DAY_OF_MONTH); // 當月的第一天
+		int mthday = cal.getActualMaximum(Calendar.DAY_OF_MONTH); // 取得當月最大天數
+
+		// System.err.println(cal.get(Calendar.DAY_OF_WEEK)); // 取出和存入當月份星期幾的數值
+		// System.err.println(Calendar.DAY_OF_WEEK); // 僅是一個值
+		// System.err.println("calwk:" + calwk);
+		// System.err.println("calmth:" + mthday);
+
+		for (int i = 1; i < calwk; i++) {
+			System.out.print("   "); // 先把空格印出來
+		}
+		for (int i = 1; i <= mthday; i++) { // set date of month
+			if (i < 10) { // 個位數的印法
+				System.out.print(" " + i + " ");
+			} else { // 十進位的印法
+				System.out.print(" " + i);
+			} // 調整格式
+			if (cal.get(Calendar.DAY_OF_WEEK) == 7) { // 每到星期六則跳行
+				System.out.println("");
+			}
+			cal.add(Calendar.DAY_OF_MONTH, 1); // 往後累加現在的天數
+		}
+	}
+	-->
+	
+
+</body>
+
+</html>
