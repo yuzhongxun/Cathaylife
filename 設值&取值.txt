@@ -1,0 +1,37 @@
+	//$F('DIV_NO') 
+document.getEl .... $('DIV_NO')
+
+
+$('DIV_NO').value = '123'; //設值
+$('DIV_NO').setValue('123');//設值 --> 會轉換格式 一律使用此方式
+$('DIV_NO').value //取值
+$('DIV_NO').getValue();//取值 等同於 $F('DIV_NO') --> 會轉換格式 一律使用此方式
+
+
+	//自行定義檢核
+		Validation.addAllThese([
+			['requiredA', 'EMP_ID, EMP_NAME 不可同時空白.', function(v1, v2) {
+				if(v1 || v2){
+					return true;
+				}
+				
+				return false;
+			}],
+			['requiredA_10', '這裡是跑出的訊息', function(v1) {
+				
+				if(v1 && v1.length >10){
+					return false;
+				}
+				return true;
+			}]
+		]);
+		
+		valid = new Validation('form1', { mode:'validator'});//form1:區塊皆可 (table , div , form) validate: 大紅, validator:粉紅, alert
+		
+		valid.define( 'required' , [{ id : 'EMP_ID' }] );				
+		valid.define( 'requiredA_10' , [{ id : 'EMP_ID' }] );	
+		
+		//valid.define( 'required' , [{ id : 'EMP_NAME', errMsg:'  姓名 不可為空' }] );
+		
+		//valid.clear(); 清除 valid.define
+		//valid.reset(); 清除顏色
