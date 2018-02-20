@@ -1,2 +1,2 @@
 # MVC framework
-Java Javascript and MVC framework
+Java, Javascript and MVC framework
