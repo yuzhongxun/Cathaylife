@@ -10,8 +10,8 @@ import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 public class hw_second_2 {
 
 	/**
-	 * ÀH¾÷²£¥Í15­Ó¤¶©ó1-10¤§¶¡ªºBigDecimal(¤£¯à­«ÂĞ), ±N¨ä¨ú¦Ü¤p¼Æ²Ä¤T¦ì(¥|±Ë¤­¤J)¨Ã¨Ì§Ç¦s¤JCollectionÃşª«¥ó,
-	 * ¨Ã¶i¦æ¤U¦C­pºâ: (1). ¦L¥X¨ä±Æ§Ç«á¤§¼Æ¦C (2). ­pºâ15­Ó¼Æ¦r¤§¥­§¡­È
+	 * éš¨æ©Ÿç”¢ç”Ÿ15å€‹ä»‹æ–¼1-10ä¹‹é–“çš„BigDecimal(ä¸èƒ½é‡è¦†), å°‡å…¶å–è‡³å°æ•¸ç¬¬ä¸‰ä½(å››æ¨äº”å…¥)ä¸¦ä¾åºå­˜å…¥Collectioné¡ç‰©ä»¶,
+	 * ä¸¦é€²è¡Œä¸‹åˆ—è¨ˆç®—: (1). å°å‡ºå…¶æ’åºå¾Œä¹‹æ•¸åˆ— (2). è¨ˆç®—15å€‹æ•¸å­—ä¹‹å¹³å‡å€¼
 	 * 
 	 * @param args
 	 */
@@ -22,28 +22,28 @@ public class hw_second_2 {
 				for (int j = 0; j < 15; j++) { 
 				 double num = (double) (Math.random() * 9 + 1);
 				 BigDecimal BDnum = new BigDecimal(num);
-				 ArrNum.add(BDnum.setScale(3, BigDecimal.ROUND_HALF_UP)); // ±N BDnum ¨ú²Ä3¦ì¼Æªº set ©ñ¤J Arraylist 
+				 ArrNum.add(BDnum.setScale(3, BigDecimal.ROUND_HALF_UP)); // å°‡ BDnum å–ç¬¬3ä½æ•¸çš„ set æ”¾å…¥ Arraylist 
 				 
 				boolean isSame = true;
 				while (isSame) {
 					 	num = (double) (Math.random() * 9 + 1);
 					 	BDnum = new BigDecimal(num);
 						for (int k = 0; k < j - 1; k++) {
-							BigDecimal tempNum = ArrNum.get(k); // §â¤@®æªº¼Æ­È¨ú¥X«á©ñ¤J tempNum
-							if (BDnum == tempNum) { // §PÂ_¬O§_¦³­«ÂĞ,­Y¦³­«ÂĞ´N¸õ¹L
+							BigDecimal tempNum = ArrNum.get(k); // æŠŠä¸€æ ¼çš„æ•¸å€¼å–å‡ºå¾Œæ”¾å…¥ tempNum
+							if (BDnum == tempNum) { // åˆ¤æ–·æ˜¯å¦æœ‰é‡è¦†,è‹¥æœ‰é‡è¦†å°±è·³é
 								continue;
 								// random
 							}
 						}
 						isSame = false;
-						ArrNum.set(j, BDnum.setScale(3, BigDecimal.ROUND_HALF_UP)); // ¨S¦³­«½Æ´N©ñ¤J ArrayList, ¨C­Ó­È³£¥e¤@­Ó index
-						sum = sum.add(BDnum); // sum °µ¥[Á`¦^¶Ç©ñ¤Jsum
+						ArrNum.set(j, BDnum.setScale(3, BigDecimal.ROUND_HALF_UP)); // æ²’æœ‰é‡è¤‡å°±æ”¾å…¥ ArrayList, æ¯å€‹å€¼éƒ½å ä¸€å€‹ index
+						sum = sum.add(BDnum); // sum åšåŠ ç¸½å›å‚³æ”¾å…¥sum
 					}			 						 
 		}
-						Collections.sort(ArrNum);  // °µ sort±Æ§Ç
+						Collections.sort(ArrNum);  // åš sortæ’åº
 						BigDecimal total = new BigDecimal(15);
 						BigDecimal avg = sum.divide(total, 3, RoundingMode.HALF_UP);
-						System.err.println("±Æ§Ç«á: " + ArrNum);
-						System.err.printf("¥­§¡¼Æ: " + avg);
+						System.err.println("æ’åºå¾Œ: " + ArrNum);
+						System.err.printf("å¹³å‡æ•¸: " + avg);
 	}
 }
