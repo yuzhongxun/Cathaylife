@@ -3,8 +3,8 @@ package com.cathay.hw3;
 public class hw_third_1 {
 
 	/**
-	 * ½Ğ¤À§O¥H(1) String (2) StringBuilder¨âºØ¤èªk²£¥Í¤@¦r¦ê¡¨a¡¨¡A¨Ã¤À§O¦ê±µ¥t¤@¦r¦ê¡¨0¡¨ (1) ¤@¸U¦¸ (2) ¤­¸U¦¸
-	 * (3)¤Q¸U¦¸¡A³Ì«á¿é¥Xªá¶Oªº®É¶¡¥H¤Î°O¾ĞÅé¨Ï¥Î¶q¡C
+	 * è«‹åˆ†åˆ¥ä»¥(1) String (2) StringBuilderå…©ç¨®æ–¹æ³•ç”¢ç”Ÿä¸€å­—ä¸²â€aâ€ï¼Œä¸¦åˆ†åˆ¥ä¸²æ¥å¦ä¸€å­—ä¸²â€0â€ (1) ä¸€è¬æ¬¡ (2) äº”è¬æ¬¡
+	 * (3)åè¬æ¬¡ï¼Œæœ€å¾Œè¼¸å‡ºèŠ±è²»çš„æ™‚é–“ä»¥åŠè¨˜æ†¶é«”ä½¿ç”¨é‡ã€‚
 	 * 
 	 * @param args
 	 */
@@ -19,7 +19,7 @@ public class hw_third_1 {
 	private static void doExecute(int times) {
 		// String
 		String Strword = "a";
-		long starttime = System.currentTimeMillis(); // °õ¦æ«eªº®É¶¡
+		long starttime = System.currentTimeMillis(); // åŸ·è¡Œå‰çš„æ™‚é–“
 		Runtime rt = Runtime.getRuntime();
 		rt.gc(); // get clear memory
 		long usedMem = rt.totalMemory() - rt.freeMemory(); // occupy memory capacity
@@ -27,14 +27,14 @@ public class hw_third_1 {
 			Strword = Strword + "0";
 		}
 		long useEndMem = rt.totalMemory() - rt.freeMemory();
-		long endtime = System.currentTimeMillis(); // °õ¦æ«áªº®É¶¡
-		System.out.println("String °µ " + times + " ¦¸ªºªá¶O®É¶¡: " + (endtime - starttime) + " ms");
-		System.out.println("String °µ " + times + " ¦¸ªº°O¾ĞÅé¨Ï¥Î¶q: " + (useEndMem - usedMem) + " byte");
+		long endtime = System.currentTimeMillis(); // åŸ·è¡Œå¾Œçš„æ™‚é–“
+		System.out.println("String åš " + times + " æ¬¡çš„èŠ±è²»æ™‚é–“: " + (endtime - starttime) + " ms");
+		System.out.println("String åš " + times + " æ¬¡çš„è¨˜æ†¶é«”ä½¿ç”¨é‡: " + (useEndMem - usedMem) + " byte");
 		System.out.println("---------------------------------------------------------");
 
 		// StringBuilder
 		StringBuilder SBword = new StringBuilder("a");
-		starttime = System.currentTimeMillis(); // °õ¦æ«eªº®É¶¡
+		starttime = System.currentTimeMillis(); // åŸ·è¡Œå‰çš„æ™‚é–“
 		rt = Runtime.getRuntime();
 		rt.gc(); // get clear memory
 		usedMem = rt.totalMemory() - rt.freeMemory();
@@ -42,9 +42,9 @@ public class hw_third_1 {
 			SBword = SBword.append("0"); // now original string is changed
 		}
 		useEndMem = rt.totalMemory() - rt.freeMemory();
-		endtime = System.currentTimeMillis(); // °õ¦æ«áªº®É¶¡
-		System.out.println("StringBuilder °µ " + times + " ¦¸ªºªá¶O®É¶¡: " + (endtime - starttime) + " ms");
-		System.out.println("StringBuilder °µ " + times + " ¦¸ªº°O¾ĞÅé¨Ï¥Î¶q: " + (useEndMem - usedMem) + " byte");
+		endtime = System.currentTimeMillis(); // åŸ·è¡Œå¾Œçš„æ™‚é–“
+		System.out.println("StringBuilder åš " + times + " æ¬¡çš„èŠ±è²»æ™‚é–“: " + (endtime - starttime) + " ms");
+		System.out.println("StringBuilder åš " + times + " æ¬¡çš„è¨˜æ†¶é«”ä½¿ç”¨é‡: " + (useEndMem - usedMem) + " byte");
 		System.out.println("---------------------------------------------------------");
 	}
 }
