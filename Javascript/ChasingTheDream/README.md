@@ -1,5 +1,6 @@
 # 未解的 Bug
 1. 「特色」裡面的右測的3欄 Title和上面間距過大，無法切齊左側同樣位置
+2. 計數器 Counter 的背景圖片放上 Website 呈現無法顯示
 
 # 測試部分
 1. Make Validation Service
